@@ -35,3 +35,46 @@ contactForm.addEventListener('submit', (e) => {
         contactForm.reset(); // Reset the form fields
     }
 });
+
+// Newsletter Popup
+const newsletterPopup = document.getElementById('newsletterPopup');
+const closePopupButton = document.querySelector('.close-popup');
+const newsletterForm = document.getElementById('newsletterForm');
+const newsletterMessage = document.getElementById('newsletterMessage');
+
+// Show popup after 5 seconds
+setTimeout(() => {
+    newsletterPopup.style.display = 'flex';
+}, 5000);
+
+// Close popup when clicking the close button
+closePopupButton.addEventListener('click', () => {
+    newsletterPopup.style.display = 'none';
+});
+
+// Close popup when clicking outside the content
+window.addEventListener('click', (event) => {
+    if (event.target === newsletterPopup) {
+        newsletterPopup.style.display = 'none';
+    }
+});
+
+// Newsletter form submission
+newsletterForm.addEventListener('submit', (e) => {
+    e.preventDefault(); // Prevent form submission
+
+    const email = document.getElementById('newsletterEmail').value.trim();
+
+    if (email === '') {
+        newsletterMessage.textContent = 'Please enter a valid email.';
+        newsletterMessage.style.color = 'red';
+    } else {
+        newsletterMessage.textContent = 'Thank you for subscribing!';
+        newsletterMessage.style.color = 'green';
+        newsletterForm.reset(); // Reset the form
+        setTimeout(() => {
+            newsletterPopup.style.display = 'none';
+        }, 2000); // Hide popup after 2 seconds
+    }
+});
+
