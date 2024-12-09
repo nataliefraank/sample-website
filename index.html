@@ -63,12 +63,13 @@
     <section id="contact" class="section">
         <div class="container">
             <h2>Contact Us</h2>
-            <form>
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <textarea name="message" placeholder="Your Message" required></textarea>
+            <form id="contactForm">
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                <textarea id="message" name="message" placeholder="Your Message" required></textarea>
                 <button type="submit">Send</button>
             </form>
+            <p id="formMessage"></p>
         </div>
     </section>
 
@@ -77,5 +78,9 @@
             <p>&copy; 2024 Publishing House. All Rights Reserved.</p>
         </div>
     </footer>
+
+    <button id="backToTop">↑ Back to Top</button>
+
+    <script src="script.js"></script>
 </body>
 </html>
